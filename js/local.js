@@ -33,7 +33,7 @@ $(function() {
 				// Get [input] text variable
 				var num = $(this).val();
 
-				fizzBuzzOutputMsg.append(num);
+
 
 				// Create the list item & click event to cross off individual list item
 	//			var task = $("<li>").html(listItemInput).attr("class", "pending").on("click", function() {
@@ -46,10 +46,22 @@ $(function() {
 	//
 	//			listOutput.append(task);
 
+
+
+
+
+				fizzBuzzOutputMsg.append(num);
+
 				// After adding new list item replace input[value] attribute with an empty string
 				$(this).val("");
 			}
 
+		});
+
+		// [Reset Number] button to remove outputted number from field
+		$("#reset-number").on("click", function(event) {
+			event.preventDefault();
+			fizzBuzzOutputMsg.html("");
 		});
 
 	}
