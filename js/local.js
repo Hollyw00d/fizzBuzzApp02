@@ -44,6 +44,9 @@ $(function() {
 				else if(num > 100) {
 					fizzBuzzOutputMsg.html(fail);
 				}
+				else if(num % 3 != 0 && num % 5 != 0) {
+					fizzBuzzOutputMsg.html(fail);
+				}
 				else if(num % 3 == 0 && num % 5 == 0) {
 					fizzBuzzOutputMsg.html(divisibleBy3And5);
 				}
