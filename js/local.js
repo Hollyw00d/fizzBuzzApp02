@@ -1,11 +1,3 @@
-/***
- * Fizz Buzz App by Matt Jennings, August 2014
- * Numbers 1 - 100 will be printed out with exceptions found here:
- * http://en.wikipedia.org/wiki/Fizz_buzz
-***/
-
-// Print Out Numbers 1 - 100 and append to [p#fizzbuzz-output]
-
 // Start Anonymous function
 (function() {
 
@@ -13,9 +5,9 @@
 $(function() {
 
 	/* 	* Evaluate number entered in input and print out
-			* "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again" per the rules at the Fizz Buzz game:
-			* http://en.wikipedia.org/wiki/Fizz_buzz
-	*/
+	 * "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again" per the rules at the Fizz Buzz game:
+	 * http://en.wikipedia.org/wiki/Fizz_buzz
+	 */
 	function fizzBuzzNumEvaluate() {
 
 		// After form is submitted appended text here says "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again"
@@ -31,28 +23,38 @@ $(function() {
 				fizzBuzzOutputMsg.html("");
 
 				// Get [input] text variable
-				var num = $(this).val();
+				var num = +$(this).val();
 
+				// Success and error msgs
+				var divisibleBy3And5 = "<strong>" + num + "</strong><br />Fizz Buzz! Your number is divisible by 3 and 5";
+				var divisibleBy3 = "<strong>" + num + "</strong><br />Fizz! Your number is divisible by 3";
+				var divisibleBy5 = "<strong>" + num + "</strong><br />Buzz! Your number is divisible by 5";
+				var fail = "<strong>" + num + "</strong><br />Sorry, please try again";
 
+				// Conditionals that display success and error msgs
+			 	if(isNaN(num)) {
+					fizzBuzzOutputMsg.html(fail);
+				}
+				else if(num != Math.floor(num)) {
+					fizzBuzzOutputMsg.html(fail);
+				}
+				else if(num < 1) {
+					fizzBuzzOutputMsg.html(fail);
+				}
+				else if(num > 100) {
+					fizzBuzzOutputMsg.html(fail);
+				}
+				else if(num % 3 == 0 && num % 5 == 0) {
+					fizzBuzzOutputMsg.html(divisibleBy3And5);
+				}
+				else if(num % 3 == 0) {
+					fizzBuzzOutputMsg.html(divisibleBy3);
+				}
+				else if(num % 5 == 0) {
+					fizzBuzzOutputMsg.html(divisibleBy5);
+				}
 
-				// Create the list item & click event to cross off individual list item
-	//			var task = $("<li>").html(listItemInput).attr("class", "pending").on("click", function() {
-	//				if($(this).hasClass("pending")) {
-	//					$(this).removeClass("pending").addClass("done");
-	//				} else {
-	//					$(this).removeClass("done").addClass("pending");
-	//				}
-	//			});
-	//
-	//			listOutput.append(task);
-
-
-
-
-
-				fizzBuzzOutputMsg.append(num);
-
-				// After adding new list item replace input[value] attribute with an empty string
+				// Submitting button replace input[value] attribute with an empty string
 				$(this).val("");
 			}
 
@@ -67,39 +69,8 @@ $(function() {
 	}
 	fizzBuzzNumEvaluate();
 
-
-
-
-//	function fizzBuzz() {
-//
-//		var outputContainer = $("#fizzbuzz-output");
-//
-//		function printOneThroughHundred() {
-//			for(var i = 1; i <= 100; i++) {
-//				if(i % 3 == 0 && i % 5 == 0) {
-//					$(outputContainer).append("Fizz Buzz<br />");
-//				} else if(i % 3 == 0) {
-//					$(outputContainer).append("Fizz<br />");
-//				} else if(i % 5 == 0) {
-//					$(outputContainer).append("Buzz<br />");
-//				} else {
-//					$(outputContainer).append(i + "<br />");
-//				}
-//
-//			}
-//		}
-//		printOneThroughHundred();
-//
-//	}
-//	fizzBuzz();
-//
-
-
-
 });
 // End jQuery Ready Function
-
-
 
 })();
 // End Anonymous function
