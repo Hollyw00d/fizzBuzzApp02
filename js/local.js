@@ -12,32 +12,48 @@
 // Start jQuery Ready Function
 $(function() {
 
+	/* 	* Evaluate number entered in input and print out
+			* "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again" per the rules at the Fizz Buzz game:
+			* http://en.wikipedia.org/wiki/Fizz_buzz
+	*/
+	function fizzBuzzNumEvaluate() {
 
-// Add list items when pressing [Enter] key
-	$("#enter-number-field").on("keypress", function(event) {
+		// After form is submitted appended text here says "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again"
+		var fizzBuzzOutputMsg = $("#fizz-buzz-output-msg");
 
-		if (event.which == "13") {
-			event.preventDefault();
+		// Capture and evaluate number when pressing [Enter] key
+		$("#enter-number-field").on("keypress", function(event) {
 
-			// Get [input] text variable
-			var listItemInput = $(this).val();
+			if (event.which == "13") {
+				event.preventDefault();
 
-			// Create the list item & click event to cross off individual list item
-//			var task = $("<li>").html(listItemInput).attr("class", "pending").on("click", function() {
-//				if($(this).hasClass("pending")) {
-//					$(this).removeClass("pending").addClass("done");
-//				} else {
-//					$(this).removeClass("done").addClass("pending");
-//				}
-//			});
-//
-//			listOutput.append(task);
+				// Remove number listed in fizzBuzzOutputMsg area if needed
+				fizzBuzzOutputMsg.html("");
 
-			// After adding new list item replace input[value] attribute with an empty string
-			$(this).val("");
-		}
+				// Get [input] text variable
+				var num = $(this).val();
 
-	});
+				fizzBuzzOutputMsg.append(num);
+
+				// Create the list item & click event to cross off individual list item
+	//			var task = $("<li>").html(listItemInput).attr("class", "pending").on("click", function() {
+	//				if($(this).hasClass("pending")) {
+	//					$(this).removeClass("pending").addClass("done");
+	//				} else {
+	//					$(this).removeClass("done").addClass("pending");
+	//				}
+	//			});
+	//
+	//			listOutput.append(task);
+
+				// After adding new list item replace input[value] attribute with an empty string
+				$(this).val("");
+			}
+
+		});
+
+	}
+	fizzBuzzNumEvaluate();
 
 
 
