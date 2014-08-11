@@ -12,37 +12,66 @@
 // Start jQuery Ready Function
 $(function() {
 
-	// Fizz Buzz JS
-	function fizzBuzz() {
 
-		// Fizz Buzz output container
-		var outputContainer = $("#fizzbuzz-output");
+// Add list items when pressing [Enter] key
+	$("#enter-number-field").on("keypress", function(event) {
 
-		// Print 1 - 100 with  exceptions for:
-		// >> 3 prints out "Fizz"
-		// >> 5 prints out "Buzz"
-		// >> 3 prints out "Fizz Buzz"
-		function printOneThroughHundred() {
-			for(var i = 1; i <= 100; i++) {
-				if(i % 3 == 0 && i % 5 == 0) {
-					$(outputContainer).append("Fizz Buzz<br />");
-				} else if(i % 3 == 0) {
-					$(outputContainer).append("Fizz<br />");
-				} else if(i % 5 == 0) {
-					$(outputContainer).append("Buzz<br />");
-				} else {
-					$(outputContainer).append(i + "<br />");
-				}
+		if (event.which == "13") {
+			event.preventDefault();
 
-			}
+			// Get [input] text variable
+			var listItemInput = $(this).val();
+
+			// Create the list item & click event to cross off individual list item
+//			var task = $("<li>").html(listItemInput).attr("class", "pending").on("click", function() {
+//				if($(this).hasClass("pending")) {
+//					$(this).removeClass("pending").addClass("done");
+//				} else {
+//					$(this).removeClass("done").addClass("pending");
+//				}
+//			});
+//
+//			listOutput.append(task);
+
+			// After adding new list item replace input[value] attribute with an empty string
+			$(this).val("");
 		}
-		printOneThroughHundred();
 
-	}
-	fizzBuzz();
+	});
+
+
+
+
+//	function fizzBuzz() {
+//
+//		var outputContainer = $("#fizzbuzz-output");
+//
+//		function printOneThroughHundred() {
+//			for(var i = 1; i <= 100; i++) {
+//				if(i % 3 == 0 && i % 5 == 0) {
+//					$(outputContainer).append("Fizz Buzz<br />");
+//				} else if(i % 3 == 0) {
+//					$(outputContainer).append("Fizz<br />");
+//				} else if(i % 5 == 0) {
+//					$(outputContainer).append("Buzz<br />");
+//				} else {
+//					$(outputContainer).append(i + "<br />");
+//				}
+//
+//			}
+//		}
+//		printOneThroughHundred();
+//
+//	}
+//	fizzBuzz();
+//
+
+
 
 });
 // End jQuery Ready Function
+
+
 
 })();
 // End Anonymous function
