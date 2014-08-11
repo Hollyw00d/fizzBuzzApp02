@@ -12,37 +12,82 @@
 // Start jQuery Ready Function
 $(function() {
 
-	// Fizz Buzz JS
-	function fizzBuzz() {
+	/* 	* Evaluate number entered in input and print out
+			* "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again" per the rules at the Fizz Buzz game:
+			* http://en.wikipedia.org/wiki/Fizz_buzz
+	*/
+	function fizzBuzzNumEvaluate() {
 
-		// Fizz Buzz output container
-		var outputContainer = $("#fizzbuzz-output");
+		// After form is submitted appended text here says "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again"
+		var fizzBuzzOutputMsg = $("#fizz-buzz-output-msg");
 
-		// Print 1 - 100 with  exceptions for:
-		// >> 3 prints out "Fizz"
-		// >> 5 prints out "Buzz"
-		// >> 3 prints out "Fizz Buzz"
-		function printOneThroughHundred() {
-			for(var i = 1; i <= 100; i++) {
-				if(i % 3 == 0 && i % 5 == 0) {
-					$(outputContainer).append("Fizz Buzz<br />");
-				} else if(i % 3 == 0) {
-					$(outputContainer).append("Fizz<br />");
-				} else if(i % 5 == 0) {
-					$(outputContainer).append("Buzz<br />");
-				} else {
-					$(outputContainer).append(i + "<br />");
-				}
+		// Capture and evaluate number when pressing [Enter] key
+		$("#enter-number-field").on("keypress", function(event) {
 
+			if (event.which == "13") {
+				event.preventDefault();
+
+				// Remove number listed in fizzBuzzOutputMsg area if needed
+				fizzBuzzOutputMsg.html("");
+
+				// Get [input] text variable
+				var num = $(this).val();
+
+				fizzBuzzOutputMsg.append(num);
+
+				// Create the list item & click event to cross off individual list item
+	//			var task = $("<li>").html(listItemInput).attr("class", "pending").on("click", function() {
+	//				if($(this).hasClass("pending")) {
+	//					$(this).removeClass("pending").addClass("done");
+	//				} else {
+	//					$(this).removeClass("done").addClass("pending");
+	//				}
+	//			});
+	//
+	//			listOutput.append(task);
+
+				// After adding new list item replace input[value] attribute with an empty string
+				$(this).val("");
 			}
-		}
-		printOneThroughHundred();
+
+		});
 
 	}
-	fizzBuzz();
+	fizzBuzzNumEvaluate();
+
+
+
+
+//	function fizzBuzz() {
+//
+//		var outputContainer = $("#fizzbuzz-output");
+//
+//		function printOneThroughHundred() {
+//			for(var i = 1; i <= 100; i++) {
+//				if(i % 3 == 0 && i % 5 == 0) {
+//					$(outputContainer).append("Fizz Buzz<br />");
+//				} else if(i % 3 == 0) {
+//					$(outputContainer).append("Fizz<br />");
+//				} else if(i % 5 == 0) {
+//					$(outputContainer).append("Buzz<br />");
+//				} else {
+//					$(outputContainer).append(i + "<br />");
+//				}
+//
+//			}
+//		}
+//		printOneThroughHundred();
+//
+//	}
+//	fizzBuzz();
+//
+
+
 
 });
 // End jQuery Ready Function
+
+
 
 })();
 // End Anonymous function

@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
 	<title>Fizz Buzz App Using jQuery by Matt Jennings</title>
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/local.js"></script>
 </head>
 <body>
 
-<h1>Fizz Buzz App Using jQuery by Matt Jennings</h1>
+<h1>Refactored Fizz Buzz App Using jQuery by Matt Jennings</h1>
 
-<p><strong>Below numbers 1 - 100 will be printed out with a few exceptions:</strong></p>
+<p>Enter a number that is 1 - 100, then press <strong>Enter</strong>. Then you will see one of 4 messages listed below per the rules of the <a href="http://en.wikipedia.org/wiki/Fizz_buzz" target="_blank">Fizz Buzz division game</a>:</p>
 
 <ul>
-	<li><strong>Numbers divisible by 3 will be replaced with <em>Fizz</em>.</strong></li>
-	<li><strong>Numbers divisible by 5 will be replaced with <em>Buzz</em>.</strong></li>
-	<li><strong>Numbers divisible by 3 and 5 will be replaced with <em>Fizz Buzz</em>.</strong></li>
+	<li>If the number you entered was divisible by 3, after you will see a <strong><em>Fizz! Your number is divisible by 3</em></strong> message.</li>
+	<li>If the number you entered was divisible by 5, after you will see a <strong><em>Buzz! Your number is divisible by 5</em></strong> message.</li>
+	<li>If the number you entered was divisible by 3 and 5, after you will see a <strong><em>Fizz Buzz! Your number is divisible by 3 and 5</em></strong> message.</li>
+	<li>If you accidentally didn't follow the instructions listed above, you will see a <strong><em>Sorry, please try again</em></strong> message.</li>
 </ul>
 
-<p id="fizzbuzz-output"></p>
+<form id="enter-your-number">
+	<fieldset>
+		<p><input placeholder="Enter your number" type="text" id="enter-number-field" /></p>
+
+		<p id="fizz-buzz-output-msg"></p>
+
+		<button>Reset List</button>
+
+	</fieldset>
+</form>
 
 </body>
 </html>
