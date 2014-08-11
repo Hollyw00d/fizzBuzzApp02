@@ -1,11 +1,3 @@
-/***
- * Fizz Buzz App by Matt Jennings, August 2014
- * Numbers 1 - 100 will be printed out with exceptions found here:
- * http://en.wikipedia.org/wiki/Fizz_buzz
-***/
-
-// Print Out Numbers 1 - 100 and append to [p#fizzbuzz-output]
-
 // Start Anonymous function
 (function() {
 
@@ -13,28 +5,13 @@
 $(function() {
 
 	/* 	* Evaluate number entered in input and print out
-			* "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again" per the rules at the Fizz Buzz game:
-			* http://en.wikipedia.org/wiki/Fizz_buzz
-	*/
+	 * "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again" per the rules at the Fizz Buzz game:
+	 * http://en.wikipedia.org/wiki/Fizz_buzz
+	 */
 	function fizzBuzzNumEvaluate() {
 
 		// After form is submitted appended text here says "Fizz", "Buzz", "Fizz Buzz" or "Sorry, please try again"
 		var fizzBuzzOutputMsg = $("#fizz-buzz-output-msg");
-
-
-//		for(var i = 1; i <= 100; i++) {
-//			if(i % 3 == 0 && i % 5 == 0) {
-//				$(fizzBuzzOutputMsg).append("Fizz Buzz<br />");
-//			} else if(i % 3 == 0) {
-//				$(fizzBuzzOutputMsg).append("Fizz<br />");
-//			} else if(i % 5 == 0) {
-//				$(fizzBuzzOutputMsg).append("Buzz<br />");
-//			} else {
-//				$(fizzBuzzOutputMsg).append(i + "<br />");
-//			}
-//
-//		}
-
 
 		// Capture and evaluate number when pressing [Enter] key
 		$("#enter-number-field").on("keypress", function(event) {
