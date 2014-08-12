@@ -26,35 +26,36 @@ $(function() {
 				var num = +$(this).val();
 
 				// Success and error msgs
-				var divisibleBy3And5 = "<strong>" + num + "</strong><br />Fizz Buzz! Your number is divisible by 3 and 5";
-				var divisibleBy3 = "<strong>" + num + "</strong><br />Fizz! Your number is divisible by 3";
-				var divisibleBy5 = "<strong>" + num + "</strong><br />Buzz! Your number is divisible by 5";
+				var divisibleBy3And5 = "Fizz Buzz!";
+				var divisibleBy3 = "Fizz!";
+				var divisibleBy5 = "Buzz!";
 				var fail = "<strong>" + num + "</strong><br />Sorry, please try again";
 
-				// Conditionals that display success and error msgs
+				// Conditionals that display error msgs
 			 	if(isNaN(num)) {
 					fizzBuzzOutputMsg.html(fail);
-				}
-				else if(num != Math.floor(num)) {
+				} else if(num != Math.floor(num)) {
 					fizzBuzzOutputMsg.html(fail);
-				}
-				else if(num < 1) {
+				} else if(num > 100) {
 					fizzBuzzOutputMsg.html(fail);
-				}
-				else if(num > 100) {
+				} else if(num < 1) {
 					fizzBuzzOutputMsg.html(fail);
-				}
-				else if(num % 3 != 0 && num % 5 != 0) {
-					fizzBuzzOutputMsg.html(fail);
-				}
-				else if(num % 3 == 0 && num % 5 == 0) {
-					fizzBuzzOutputMsg.html(divisibleBy3And5);
-				}
-				else if(num % 3 == 0) {
-					fizzBuzzOutputMsg.html(divisibleBy3);
-				}
-				else if(num % 5 == 0) {
-					fizzBuzzOutputMsg.html(divisibleBy5);
+				} else {
+
+					// For loop runs only after errors not met above
+					for(var i = 1; i <= num; i++) {
+						if(i % 3 == 0 && i % 5 == 0) {
+							fizzBuzzOutputMsg.append(divisibleBy3And5 + "<br />");
+						} else if(i % 3 == 0) {
+							fizzBuzzOutputMsg.append(divisibleBy3 + "<br />");
+						} else if(i % 5 == 0) {
+							fizzBuzzOutputMsg.append(divisibleBy5 + "<br />");
+						} else {
+							fizzBuzzOutputMsg.append(i + "<br />");
+						}
+
+					}
+
 				}
 
 				// Submitting button replace input[value] attribute with an empty string
