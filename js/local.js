@@ -25,31 +25,18 @@ $(function() {
 				// Get [input] text variable
 				var num = +$(this).val();
 
-				// Success and error msgs
-				var divisibleBy3And5 = "Fizz Buzz!";
-				var divisibleBy3 = "Fizz!";
-				var divisibleBy5 = "Buzz!";
-				var fail = "<strong>" + num + "</strong><br />Sorry, please try again";
-
 				// Conditionals that display error msgs
-			 	if(isNaN(num)) {
-					fizzBuzzOutputMsg.html(fail);
-				} else if(num != Math.floor(num)) {
-					fizzBuzzOutputMsg.html(fail);
-				} else if(num > 100) {
-					fizzBuzzOutputMsg.html(fail);
-				} else if(num < 1) {
-					fizzBuzzOutputMsg.html(fail);
+			 	if(isNaN(num) || num != Math.floor(num) || num > 100 || num < 1) {
+					fizzBuzzOutputMsg.append("Sorry, you need to enter a whole number from 1 - 100 inclusive. Please try again.");
 				} else {
-
 					// For loop runs only after errors not met above
 					for(var i = 1; i <= num; i++) {
 						if(i % 3 == 0 && i % 5 == 0) {
-							fizzBuzzOutputMsg.append(divisibleBy3And5 + "<br />");
+							fizzBuzzOutputMsg.append("Fizz Buzz!<br />");
 						} else if(i % 3 == 0) {
-							fizzBuzzOutputMsg.append(divisibleBy3 + "<br />");
+							fizzBuzzOutputMsg.append("Fizz!<br />");
 						} else if(i % 5 == 0) {
-							fizzBuzzOutputMsg.append(divisibleBy5 + "<br />");
+							fizzBuzzOutputMsg.append("Buzz!<br />");
 						} else {
 							fizzBuzzOutputMsg.append(i + "<br />");
 						}
